@@ -37,6 +37,7 @@ public class RelativeTargetDirectory extends GitSCMExtension {
         if (relativeTargetDir == null || relativeTargetDir.length() == 0 || relativeTargetDir.equals(".")) {
             return workspace;
         }
+        environment.put("GIT_TARGET_DIR", environment.expand(relativeTargetDir));
         return workspace.child(environment.expand(relativeTargetDir));
     }
 
